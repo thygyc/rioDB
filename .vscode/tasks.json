@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [{
+            "label": "compile",
+            "command": "g++",
+            "args": [
+                "${file}",
+                "fileHandle.cc",
+                "logging.cc",
+                "dbFile.cc",
+                "DMS.cc",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-std=c++11",
+                "-g",
+                "-lboost_system",
+                "-lboost_program_options",
+                "-lboost_log",
+                "-lboost_log_setup",
+                "-DBOOST_ALL_DYN_LINK",
+                "-DBOOST_LOG_DYN_LIN",
+                "-lboost_filesystem",
+                "-lboost_thread",
+                "-pthread",
+                "-Wall",
+                "-Wextra"
+            ],
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
